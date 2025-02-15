@@ -1,1 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heathcare access in underreserved communities
+    </title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            
+            
+        }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            background-color:aliceblue;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(90deg, #1e3c72,navy);
+            padding: 15px 20px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo img {
+            height: 55px;
+            width:50px;
+            margin-right: 10px;
+        }
+        .logo span {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            
+            letter-spacing: 2px;
+        }
+        .nav-container {
+            display: flex;
+            align-items: center;
+        }
+        .nav-links {
+            list-style: none;
+            display: flex;
+            margin-right: 20px;
+        }
+        .nav-links li {
+            margin-left: 25px;
+        }
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            transition: color 0.3s ease-in-out;
+            padding: 10px 15px;
+            border-radius: 5px;
+        }
+        .nav-links a:hover {
+            background-color:white;
+            opacity:0.5;
+            color: black;
+        }
+        .login-btn {
+            background-color: white;
+            color: #1e3c72;
+            padding: 10px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+        }
+        .login-btn:hover {
+            background-color: #f4f4f4;
+            color: #2a5298;
+        }
+        .background {
+            width: 98.5%;
+            height: 400px;
+            margin-top: 45px;
+            margin-left: 10px;
+            background: url('background.jpg') no-repeat center center/cover;
+        }
+        .overlay-image {
+            position: absolute;
+            top: 50%;  
+            left: 50%; 
+            transform: translate(-50%, -50%); 
+            width: 900px; 
+            height: 480px;
+            margin-top: 85px;
+            border: #f8f5f5 14px solid;
+        }
+      
+        /*.image1 { top: 337px; left: 830px; height:330px; width:290px; border:0px; z-index: 9; opacity : 0.9;}*/
+        .image1 { top: 367px; left: 800px; height:385px; width:647px; border:0px; z-index: 0; opacity : 0.5;}
+        
+        .image2 { top: 312px; left: 985px; height:500px; width:262px;border:0px; z-index: 10;opacity: 2px;}
+        .image3 { top: 250px; left: 800px ; height:89px; width:89px;border:0px; z-index: 12;}
+        .image4 { top: 442px; left: 1050px; height:120px; width:150px;border:0px; z-index: 13;}
+        .image5 { top: 350px; left: 950px; height:110px; width:110px;border:0px; z-index: 12;}
+        .image6 { top: 250px; left: 876px; height:284px; width:514px; border:0px; }
+        
+        .text {
+            font-family: helvetica;
+      position: absolute;
+      top: 300px; 
+      left: 480px;  
+      transform: translate(-50%, -50%);  
+      color: white;
+      font-size: 20px;
+      text-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+
+    }
+    .text2 {
+      position: absolute;
+      top: 390px; 
+      left: 465px;  
+      width:300px;
+      transform: translate(-50%, -50%);  
+      color: white;
+      font-weight: bold;
+      font-size: 20px;
+      line-height:32px;
+    }
+    .container {
+            display: flex;
+             /* Adjust as needed */
+            gap: 30px;
+            margin-left: 215px;
+        }
+        .box {
+            width: 293px;
+            height: 342px;
+            padding: 36px;
+            border: 6px #73c2fb solid;
+            background-color: white;
+            text-align: center;
+            /*line-height: 10px;*/
+            margin-top: 35px;
+            font-size: 10px;
+            
+        }
+        .subheading{
+            margin-top:170px;
+            margin-left: 320px;
+            font-family: helvetica;
+            font-size: 20px;
+        }
+        .para{
+            margin-top:20px;
+            font-size:16px;
+            line-height: 25px;
+        }
+        .containers {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 5px 9px rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            
+        }
+        .AI {
+            text-align: center;
+            color:#00060d;
+        }
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+        }
+        input[type="file"], input[type="text"], textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color:#209cff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .results {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+        }
+        .map{
+            margin-left:100px;
+            box-shadow:5px 10px 15px rgba(0, 0, 0, 0.5);
+            height:370px;
+             width:470px;
+             float:left;
+             margin-top:-400px;
+        }
+        #material1{ 
+        color:black;
+        text-align:left;
+        margin-top:30px;
+        margin-left:630px;
+        width:590px;
+        height:400px;
+        font-size:15px;
+        font-family: 'helvetica';
+        display:inline-block;
+        
+        }
+        .telemedicine{
+            margin-left: 100px;
+            margin-top: 30px;
+        }
+       
+    
+    .card {
+            width: 300px;
+           
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-family: Arial, sans-serif;
+        }
+
+        .card img {
+            width: 100%;
+            display: block;
+        }
+
+        .card-content {
+            background-color:aquamarine; 
+            color: white;
+            padding: 20px;
+        }
+
+        .card-content1 h3 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .card-content2 h3 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .card-content3 h3 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .card-content1 p {
+            margin: 10px 0 0;
+            line-height: 1.5;
+        }
+        .card-content2 p {
+            margin: 10px 0 0;
+            line-height: 1.5;
+        }
+        .card-content3 p {
+            margin: 10px 0 0;
+            line-height: 1.5;
+        }
+        .card-container {
+            display: flex;
+            gap: 25px;
+            margin-top:40px;
+            margin-left:100px;
+        }
+
+        .card {
+            width: 380px;
+           
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+           
+        }
+
+        .card img {
+            width: 100%;
+            display: block;
+        }
+
+        .card-content1 {
+            background-color:#20c997; 
+            color: white;
+            padding: 20px;
+            
+            height:170px;
+        }
+        .card-content2 {
+            background-color:#7a3cfc; 
+            color: white;
+            padding: 20px;
+            
+            height:170px;
+        }
+        .card-content3 {
+            background-color:#209cff; 
+            color: white;
+            padding: 20px;
+            
+            height:170px;
+        }
+
+        .card-content h3 {
+            margin: 0;
+            font-size: 24px;
+        }
+
+        .card-content p {
+            margin: 10px 0 0;
+            line-height: 1.5;
+        }
+        .ngo{
+            margin-top:10px;
+            margin-left:210px;
+            height:600px;
+            width:1000px;
+            border: 4px solid black;
+        }
+        .chatbot-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    z-index: 1000;
+    
+}
+
+.chatbot-icon img {
+    width: 100%;
+    height: 100%;
+    border-radius: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    background-color:white;
+}
+body {
+    font-family: Arial, sans-serif;
+}
+
+footer {
+    background-color: navy;
+    color: #fff;
+    padding: 30px 0;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    flex: 1;
+    margin: 10px;
+    min-width: 200px;
+}
+
+.footer-section h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-section ul li {
+    margin: 5px 0;
+    color: #bdbdbd;
+    cursor: pointer;
+}
+
+.footer-section ul li:hover {
+    color: #ffa500;
+}
+
+.newsletter input[type="email"] {
+    padding: 10px;
+    width: 70%;
+    border: none;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.newsletter button {
+    background-color: #20c997;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.newsletter button:hover {
+    background-color: #e69500;
+}
+
+/* Social Media Icons */
+.social-icons {
+    margin: 15px 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.social-icons a {
+    display: inline-block;
+}
+
+.social-icons img {
+    width: 40px;  /* Adjust size as needed */
+    height: 40px;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    border-radius: 0%; /* Circular icons */
+}
+
+.social-icons img:hover {
+    transform: scale(1.2);
+    opacity: 0.8;
+}
+
+.footer-bottom {
+    border-top: 1px solid #444;
+    padding: 15px 0;
+    font-size: 14px;
+    color: #bdbdbd;
+}
+
+
+.blue{
+    margin-top:10px;
+    width:890px;
+    height:30px;
+    margin-left:-80px;
+}
+.blues{
+    margin-top:10px;
+    width:200px;
+    height:30px;
+    margin-left:2px;
+}
+.video-container {
+            position: absolute;
+            width: 500px; 
+            height: 300px; 
+            margin: 50px auto;
+            margin-top:30px;
+            cursor: pointer;
+            overflow: hidden;
+            border-radius: 10px;
+            margin-left:5px;
+        }
+
+        .video-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+
+        .video-container iframe {
+            display: none; /* Initially hidden */
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+
+
+         
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <img  src="logoSC.png" alt="Logo">
+            <span>Vritra</span>
+        </div>
+        <div class="nav-container">
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#report">Resource</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="http://127.0.0.1:5500/login.html" class="login-btn">Login</a>
+        </div>
+    </nav>
+    <div class="background">
+        
+    </div>
+    <div><img src="blue.jpg" alt="Overlay Image" class="overlay-image">
+       <img style="border: 0px solid rgb(255, 255, 255);" src="hospital4.png" class="overlay-image image1" alt="Image 1">
+        <img src="doctor.png" class="overlay-image image2" alt="Image 2">
+        <!--<img src="map.png" class="overlay-image image3" alt="Image 3">-->
+        <!--<img src="tele.png" class="overlay-image image4" alt="Image 4">-->
+       
+        <!--<img src="" class="overlay-image image6" alt="Image 6">-->
+        <div class="text"><h1>Your Wellness,<br> Our Commitment.</h1></div>
+        <p class="text2">Because Every Life Matters and Every Moment Counts.</p>
+    </div>
+
+    <div class="subheading"><h1>Main Features Provided By Our Website</h1> <img class="blue" src="blue line.png"></div>
+    <div class="container">
+        <div class="box"><h1>AI Detects Diseases</h1><img class="blues" src="blue line.png"><p class="para">AI-driven disease detection enables fast, accurate diagnoses by analyzing medical images, patient data, and genetics to identify diseases like cancer and diabetes early.</p></div>
+        <div class="box"><h1>AI Health Guidance</h1><img class="blues" src="blue line.png"><p class="para">AI-powered health guidance provides personalized recommendations, symptom analysis, and wellness insights using machine learning and vast medical databases.</p></div>
+        <div class="box"><h1>AI resource mapping</h1><img class="blues" src="blue line.png"><p class="para">AI resource mapping uses artificial intelligence to optimize resource allocation, improving efficiency and decision-making. It enhances sectors like energy, healthcare, and logistics.</p></div>
+    </div>
+    <div class="containers">
+        <h1 class="AI">AI-Powered Healthcare Analysis</h1>
+        <form id="healthForm">
+            <label for="imageInput">Upload Medical Image:</label>
+            <input type="file" id="imageInput" accept="image/*" required>
+
+            <label for="symptoms">Enter Symptoms:</label>
+            <textarea id="symptoms" rows="4" placeholder="E.g., Fever, cough, fatigue..." required></textarea>
+
+            <button type="button" onclick="window.location.href='https://huggingface.co/spaces/misswd/qwertymodel';">
+                Analyze
+              </button>
+              
+        </form>
+
+        <div id="results" class="results" style="display: none;">
+            <h3>Analysis Results:</h3>
+            <p id="resultText">Processing...</p>
+        </div>
+    </div>
+    <div id="material1"> AI maps underserved areas and optimizes delivery routes for efficient resource distribution, enhancing access in sectors like healthcare and logistics.<div class="video-container" onclick="playVideo()">
+        <img src="video.png" alt="Video Thumbnail" id="thumbnail">
+        <iframe id="youtubeVideo" src="https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1" frameborder="0" allowfullscreen></iframe>
+    </div>
+    </div></div>
+    <div ><img class="map" src="hmap.png" ></div>
+    <div class="telemedicine"><h1>Integrated Telemedicine</h1><p style = "margin-top:10px; width:1039px">Our telemedicine solution brings ease of access to employees who can receive consultations anytime, anywhere irrespective of their work location. It is a trusted and uninterrupted Clinical assistance, ideal for a diverse workforce and Hybrid Workplace scenarios.</p>
+
+        <p style="margin-top: 10px;">We provide 24x7 Medical Helpline for:</p></div>
+        
+        <div class="card-container">
+            <!-- Card 1 -->
+            <div class="card">
+                <img src="https://hclhealthcare.in/wp-content/uploads/2023/11/primary-care-services.jpg" alt="Service 1">
+                <div class="card-content1">
+                    <h3>Primary Care Service</h3>
+                    <p>Consultations, E-Prescription, Ambulance support, COVID care programs, Second Opinion, Return to office support.
+                    </p>
+                </div>
+            </div>
+    
+            <!-- Card 2 -->
+            <div class="card">
+                <img src="https://hclhealthcare.in/wp-content/uploads/2023/11/specialty-services.jpg" alt="Service 2">
+                <div class="card-content2">
+                    <h3>Specialty Services</h3>
+                    <p>Gynecology, Pediatrics, Internist, Dermatology, Physiotherapist, Psychologist
+                    </p>
+                </div>
+            </div>
+    
+            <!-- Card 3 -->
+            <div class="card">
+                <img src="https://hclhealthcare.in/wp-content/uploads/2023/11/mental-health.jpg" alt="Service 3">
+                <div class="card-content3">
+                    <h3>Mental Health & Well Being</h3>
+                    <p>One on One Counselling, Group Sessions on Mental Health, Wellbeing Sessions, Curated topics for webinars.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div ><h1 style = "margin-top:50px; margin-left:210px;">Collaboration and Partnerships:</h1><img class="ngo" src="https://i0.wp.com/yuva.info/wp-content/uploads/2024/05/collaboration-and-partnerships-ngos-collective-impact-in-india.jpg?w=1500&ssl=1"></div>
+    
+        <div class="chatbot-icon">
+            <a href="https://cdn.botpress.cloud/webchat/v2.2/shareable.html?configUrl=https://files.bpcontent.cloud/2025/02/07/17/20250207170105-G7KMCZR2.json" target="_blank" class="chatbot-icon">
+                <img src="AIChatbot.png" alt="Chatbot">
+            </a>
+            
+        </div>
+        <footer>
+            <div class="footer-container">
+                <div class="footer-section">
+                    <h3>Programs</h3>
+                    <ul>
+                        <li>Corporate</li>
+                        <li>One to One</li>
+                        <li>Consulting</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Service</h3>
+                    <ul>
+                        <li>Training</li>
+                        <li>Coaching</li>
+                        <li>Consulting</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li>Home</li>
+                        <li>About</li>
+                        <li>Contact</li>
+                    </ul>
+                </div>
+                <div class="footer-section newsletter">
+                    <h3>Newsletter</h3>
+                    <input type="email" placeholder="Email Address">
+                    <button>Subscribe</button>
+                    
+                    <!-- Social Media Icons with Links -->
+                    <div class="social-icons">
+                        <a href="https://wa.me/78924749250" target="_blank">
+                            <img src="w.webp" alt="WhatsApp">
+                        </a>
+                        <a href="https://www.youtube.com/" target="_blank">
+                            <img src="y.png" alt="YouTube">
+                        </a>
+                        <a href="https://www.facebook.com/" target="_blank">
+                            <img src="i.png" alt="Facebook">
+                        </a>
+                        <a href="https://www.linkedin.com/" target="_blank">
+                            <img src="l.png" alt="LinkedIn">
+                        </a>
+                        <a href="https://twitter.com/" target="_blank">
+                            <img src="t.png" alt="Twitter">
+                        </a>
+                    </div>
+        
+                    <p>Mobile: +91 78924749250</p>
+                    <p>Email: abcd@crosscultureconnects.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 crosscultureconnects.com</p>
+            </div>
+        </footer>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <script src="https://kit.fontawesome.com/YOUR_FA_KIT.js" crossorigin="anonymous">
+        async function analyzeData() {
+            const imageInput = document.getElementById('imageInput');
+            const symptoms = document.getElementById('symptoms').value;
+            const resultsDiv = document.getElementById('results');
+            const resultText = document.getElementById('resultText');
+
+            if (!imageInput.files[0] || !symptoms) {
+                alert('Please upload an image and enter symptoms.');
+                return;
+            }
+
+            
+            resultsDiv.style.display = 'block';
+            resultText.textContent = 'Processing...';
+
+            const formData = new FormData();
+            formData.append('image', imageInput.files[0]);
+            formData.append('symptoms', symptoms);
+
+            try {
+                const response = await fetch('http://localhost:5000/analyze', {
+                    method: 'POST',
+                    body: formData
+                });
+
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+
+                const data = await response.json();
+                resultText.textContent = `Prediction: ${data.prediction}\nDetails: ${data.details}`;
+            } catch (error) {
+                resultText.textContent = 'An error occurred: ' + error.message;
+            }
+        }
+        function openChat() {
+    alert("Chatbot opened! You can integrate a chatbot here.");
+}
+function playVideo() {
+            document.getElementById("thumbnail").style.display = "none"; 
+            document.getElementById("youtubeVideo").style.display = "block"; 
+        }
+
+    </script>
+
+    
+
+</body>
+</html>
+
 
