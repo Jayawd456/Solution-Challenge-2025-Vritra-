@@ -15,3 +15,9 @@
         <img src="Screenshot (184).png" alt="Video Thumbnail" id="thumbnail">
         <iframe id="youtubeVideo" src="https://youtu.be/wWzODZN3-Ec?feature=shared" frameborder="0" allowfullscreen></iframe>
     </div>
+        <script>
+    function playVideo() {
+            document.getElementById("thumbnail").style.display = "none"; 
+            document.getElementById("youtubeVideo").style.display = "block"; 
+        }
+</script>
