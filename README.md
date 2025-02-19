@@ -1,1 +1,2 @@
 # Solution-Challenge-2025-Vritra-
+We are a dedicated team committed to transforming healthcare in underserved areas by providing innovative solutions and resources to improve patient care and wellness. Our focus is on leveraging technology to enhance healthcare accessibility and efficiency in communities that need it most. We strive to bridge the gap between medical advancements and their real-world implementation, ensuring equitable healthcare for all, particularly those in underrepresented and underserved regions.
