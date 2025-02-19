@@ -13,6 +13,6 @@
 <h1>See our Website here</h1>
 <div id="material1"> AI maps underserved areas and optimizes delivery routes for efficient resource distribution, enhancing access in sectors like healthcare and logistics.<div class="video-container" onclick="playVideo()">
         <img src="Screenshot (184).png" alt="Video Thumbnail" id="thumbnail">
-        <a alt="youtubeVideo" src="https://youtu.be/wWzODZN3-Ec?feature=shared" ></a>
+        <a alt="youtubeVideo" src="https://youtu.be/wWzODZN3-Ec?feature=shared" >Video here</a>
     </div>
        
