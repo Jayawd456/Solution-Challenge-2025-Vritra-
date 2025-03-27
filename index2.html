@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Disease Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF; /* Changed to blue */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            min-height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Disease Predictor</h1>
+        <p>Enter your symptoms separated by commas</p>
+        <p>Examples: fatigue, headache, cough, joint_pain</p>
+        <input type="text" id="symptomsInput" placeholder="e.g. fever, cough, headache">
+        <button onclick="sendRequest()">Analyze</button>
+        <div id="result">Results will appear here</div>
+    </div>
+
+    <script>
+        function sendRequest() {
+            // Clear previous result
+            document.getElementById('result').innerHTML = 'Analyzing...';
+            
+            // Get symptoms input
+            var symptoms = document.getElementById('symptomsInput').value;
+            
+            if (!symptoms) {
+                document.getElementById('result').innerHTML = 'Please enter symptoms';
+                return;
+            }
+            
+            // Log to console for debugging
+            console.log('Sending symptoms:', symptoms);
+            
+            // Make POST request
+            fetch('/predict', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    symptoms: symptoms
+                })
+            })
+            .then(function(response) {
+                console.log('Response status:', response.status);
+                return response.json();
+            })
+            .then(function(data) {
+                console.log('Response data:', data);
+                
+                // Display result
+                if (data.disease) {
+                    var resultHtml = '<strong>Predicted Disease:</strong> ' + data.disease + '<br>';
+                    
+                    if (data.found_symptoms) {
+                        resultHtml += '<br><strong>Recognized Symptoms:</strong> ' + data.found_symptoms.join(', ');
+                    }
+                    
+                    if (data.warning) {
+                        resultHtml += '<br><br><span style="color:red">' + data.warning + '</span>';
+                    }
+                    
+                    document.getElementById('result').innerHTML = resultHtml;
+                } else if (data.error) {
+                    document.getElementById('result').innerHTML = '<span style="color:red">Error: ' + data.error + '</span>';
+                }
+            })
+            .catch(function(error) {
+                console.error('Error:', error);
+                document.getElementById('result').innerHTML = 'Error connecting to server: ' + error.message;
+            });
+        }
+        
+        // Add event listener for Enter key
+        document.getElementById('symptomsInput').addEventListener('keyup', function(event) {
+            if (event.key === 'Enter') {
+                sendRequest();
+            }
+        });
+    </script>
+</body>
+</html>

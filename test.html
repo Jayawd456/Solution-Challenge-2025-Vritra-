@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>API Test</title>
+</head>
+<body>
+    <h1>API Test Page</h1>
+    <button onclick="testAPI()">Test API Connection</button>
+    <div id="result" style="margin-top: 20px; padding: 10px; border: 1px solid #ddd;">Results will appear here</div>
+    
+    <script>
+        function testAPI() {
+            document.getElementById('result').innerHTML = 'Testing API connection...';
+            
+            fetch('/api_test')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('result').innerHTML = 'API Response: ' + JSON.stringify(data);
+                })
+                .catch(error => {
+                    document.getElementById('result').innerHTML = 'Error: ' + error;
+                });
+        }
+    </script>
+</body>
+</html>
