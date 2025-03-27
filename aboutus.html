@@ -80,7 +80,7 @@
             background-color: #f0f8ff;
         }
 
-       
+
         .container {
             width: 80%;
             margin: 0 10%;
@@ -208,6 +208,73 @@
             color: #2f4f4f;
             font-weight: bold;
         }
+        .feedback-section {
+            margin: 50px auto;
+            padding: 30px;
+            max-width: 1200px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .feedback-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .feedback-text {
+            flex: 1;
+            padding: 20px;
+        }
+
+        .feedback-text h2 {
+            font-size: 28px;
+            color: #1e3c72;
+            margin-bottom: 15px;
+        }
+
+        .feedback-text p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .feedback-video {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .feedback-video video {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 10px;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .feedback-container {
+                flex-direction: column;
+            }
+
+            .feedback-text, .feedback-video {
+                flex: unset;
+                width: 100%;
+            }
+        }
         footer {
             background-color: navy;
             color: #fff;
@@ -286,22 +353,6 @@
             font-size: 14px;
             color: #bdbdbd;
         }
-        @media (max-width: 1000px) {
-    .about-section {
-        height: auto; 
-        padding: 40px 10px;
-    }
-    .about-text {
-        max-width: 100%; 
-        padding: 20px;
-    }
-    .about-text h1 {
-        font-size: 1rem;
-    }
-    .about-text p {
-        font-size: 0.3rem;
-    }
-}
     </style>
 </head>
 <body>
@@ -329,7 +380,7 @@
         <div class="about-section">
             <div class="about-text" >
                 <h1 style="font-size: 2.5rem; color: #1e90ff;">About Us</h1>
-                <p style="color: #2f4f4f; font-size: 1.1rem; ">We are a dedicated team committed to transforming healthcare in underserved areas by providing innovative solutions and resources to improve patient care and wellness. Our focus is on leveraging technology to enhance healthcare accessibility and efficiency in communities that need it most. We strive to bridge the gap between medical advancements and their real-world implementation, ensuring equitable healthcare for all, particularly those in underrepresented and underserved regions.</p>
+                <p style="color: #2f4f4f; font-size: 1.1rem; ">We are a dedicated team committed to revolutionizing healthcare by providing innovative solutions and resources to improve patient care and wellness. Our focus is on leveraging technology to enhance healthcare accessibility and efficiency. We strive to bridge the gap between medical advancements and real-world implementation, ensuring equitable healthcare for all.</p>
 
                 <div >
                     <a href="#team" class="about-btn" style="background-color: #1e90ff; color: white; font-weight: bold; ">Meet the Members</a>
@@ -343,7 +394,7 @@
                 <img src="image2.jpg" alt="Vision Icon">
                 <div>
                     <h2>Our Vision</h2>
-                    <p>Our vision is to create a world where healthcare is accessible, efficient, and effective for everyone, especially in underserved areas, by using cutting-edge technology to bridge gaps in patient care. We envision a future where innovative digital solutions empower both patients and healthcare professionals in these communities. By leveraging data-driven insights and smart healthcare systems, we aim to improve medical outcomes and overall well-being, ensuring that even the most underserved populations receive the care they need.</p>
+                    <p>To create a world where healthcare is accessible, efficient, and effective for everyone, using cutting-edge technology to bridge gaps in patient care. We envision a future where innovative digital solutions empower both patients and healthcare professionals. By leveraging data-driven insights and smart healthcare systems, we strive to enhance medical outcomes and overall well-being.</p>
                 </div>
             </div>
 
@@ -351,7 +402,7 @@
                 <img src="image3.jpg" alt="Mission Icon">
                 <div>
                     <h2>Our Mission</h2>
-                    <p>Our goal is to develop comprehensive healthcare solutions that empower patients and healthcare professionals in underserved communities, ensuring access to quality care and improved health outcomes. We aim to integrate advanced technology and AI-driven insights to enhance medical decision-making in these regions. Our commitment is to create scalable and sustainable healthcare innovations that address the unique medical needs of underserved communities worldwide, ensuring no one is left behind.</p>
+                    <p>To develop comprehensive healthcare solutions that empower patients and professionals, ensuring quality care and improved health outcomes globally. We aim to integrate advanced technology and AI-driven insights to enhance medical decision-making. Our commitment is to create scalable and sustainable healthcare innovations that address diverse medical needs worldwide.</p>
                 </div>
             </div>
         </div>
@@ -373,6 +424,24 @@
             <div class="team-member">
                 <img src="vaishnavi.png" alt="Team Member 4">
                 <p>Vaishnavi Khare</p>
+            </div>
+        </div>
+        <div class="feedback-section">
+            <div class="feedback-container">
+                <!-- Left Column: Mission Statement -->
+                <div class="feedback-text">
+                    <h2>Feedback</h2>
+                    <p>
+                        We are honored to share valuable feedback from the CMO of MMMUT, Gorakhpur, highlighting the critical role our platform plays in improving healthcare access for underserved communities. This message reflects our commitment to making a difference.
+                    </p>
+                </div>
+                <!-- Right Column: Video -->
+                <div class="feedback-video">
+                    <video controls>
+                        <source src="vid1.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
             </div>
         </div>
     </div>
@@ -425,11 +494,11 @@
                     </a>
                 </div>
                 <p>Mobile: +91 78924749250</p>
-                <p>Email: abcd@abcd.com</p>
+                <p>Email: abcd@crosscultureconnects.com</p>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 abcd.com</p>
+            <p>&copy; 2023 crosscultureconnects.com</p>
         </div>
     </footer>
 </body>
