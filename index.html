@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <title>Heathcare access in underreserved communities
     </title>
     <style>
@@ -151,9 +153,12 @@
         }
         .subheading{
             margin-top:170px;
-            margin-left: 380px;
+            margin-left: 580px;
             font-family: helvetica;
             font-size: 20px;
+        }
+        .blue{
+            width:20px;
         }
         .para{
             margin-top:20px;
@@ -356,7 +361,7 @@
             line-height: 1.5;
         }
         .ngo{
-            margin-top:20px;
+            margin-top:10px;
             margin-left:270px;
             height:600px;
             width:1000px;
@@ -478,10 +483,9 @@ footer {
     color: #bdbdbd;
 }
 
-
 .blue{
     margin-top:10px;
-    width:890px;
+    width:570px;
     height:30px;
     margin-left:-80px;
 }
@@ -516,8 +520,422 @@ footer {
             height: 100%;
             border-radius: 10px;
         }
+        .meet{
+            margin:0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Google Sans', Arial, sans-serif;
+            background-color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 70vh;
+        }
+        .containerd {
+           margin-left:60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 80%;
+            max-width: 1200px;
+        }
+        .left-section {
+            max-width: 45%;
+        }
+        .left-section h1 {
+            font-size: 40px;
+            font-weight: 700;
+            color: #202124;
+            margin-bottom: 15px;
+        }
+        .left-section p {
+            font-size: 18px;
+            color: #5f6368;
+            margin-bottom: 25px;
+        }
+        .buttons {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            width:200px;
+        }
+        /* New Stylish Button */
+        .btns {
+            display: flex;
+            align-items: center;
+            background: linear-gradient(45deg, #1a73e8, #4285f4);
+            color: white;
+            padding: 12px 22px;
+            border: none;
+            border-radius: 30px;
+            font-size: 17px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(26, 115, 232, 0.3);
+        }
+        .btns img {
+            width: 30px;
+            margin-right: 10px;
+        }
+        .btns:hover {
+            background: linear-gradient(45deg, #4285f4, #1a73e8);
+            transform: scale(1.05);
+            box-shadow: 0 6px 14px rgba(26, 115, 232, 0.5);
+        }
+        .btns a {
+            text-decoration: none;
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+        .input-group {
+            display: flex;
+            align-items: center;
+            border: 1px solid #dadce0;
+            border-radius: 30px;
+            overflow: hidden;
+        }
+        .input-group input {
+            padding: 12px;
+            border: none;
+            outline: none;
+            width: 220px;
+            font-size: 16px;
+        }
+        .input-group button {
+            background: linear-gradient(45deg, #34a853, #0f9d58);
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            color: white;
+            cursor: pointer;
+            border-radius: 0 30px 30px 0;
+            transition: all 0.3s ease;
+        }
+        .input-group button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        .input-group button:hover:not(:disabled) {
+            background: linear-gradient(45deg, #0f9d58, #34a853);
+            transform: scale(1.05);
+        }
+        .right-section {
+            text-align: center;
+            max-width: 50%;
+           
+        }
+        .right-section img {
+            width: 350px;
+            margin-top: -70px;
+            margin-left: 90px;
+        }
+        .right-section p {
+            font-size: 18px;
+            color: #5f6368;
+            margin-top: -20px;
+            margin-left: 90px;
+        }
+        .right-section strong {
+            color: #202124;
+        }
+        /* Responsive */
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            .left-section, .right-section {
+                max-width: 100%;
+            }
+            .buttons {
+                flex-direction: column;
+            }
+        }
+        .wholeMatter {
+            
+            margin-top: 50px;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        .contain {
+            position: relative;
+            width: 100%;
+            max-width: 1280px;
+            margin: auto;
+            
+        }
+        .image-contain {
+            
+            border:2px solid lightblue;
+            position: relative;
+            width: 100%;
+        }
+        .image-contain img {
+            width: 100%;
+            height:608px;
+            display: block;
+            border-radius: 10px;
+        }
+        /* Button Styling */
+        .bt-fixed {
+            position: absolute;
+            top: 60px;   /* Positioned at the top */
+            right: 40px; /* Positioned at the right */
+            background: #1a73e8;
+            color: white;
+            padding: 14px 25px;
+            font-size: 19px;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease-in-out;
+            width:250px;
+        }
+        .bt-fixed:hover {
+            background: #155ab6;
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(26, 115, 232, 0.5);
+        }
+        /* Hiding 'Your Company Name' */
+        .hide-text {
+            display: none;
+        }
+    
+        .Thewhole {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    background-color: #f8f8f8;
+    margin-top:70px;
+}
 
 
+.contains {
+    display: flex;
+    max-width: 1380px;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    
+    margin-left:30px;
+}
+
+.image-section img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-section {
+    flex: 1;
+}
+
+.text-section {
+    flex: 1;
+    padding: 40px;
+    background-color: white;
+}
+
+.a {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 10px;
+}
+
+.b {
+    font-size: 24px;
+    color: #222;
+    margin-bottom: 20px;
+}
+
+.appointmentul {
+    list-style: none;
+    margin-bottom: 20px;
+}
+
+.appointmentli {
+    font-size: 16px;
+    color: #444;
+    margin-bottom: 8px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.appointmentli::before {
+    content: "•";
+    color: black;
+    font-size: 20px;
+    position: absolute;
+    left: 0;
+    top: 2px;
+}
+
+.cta-button {
+    display: inline-block;
+    background: #ffeb3b;
+    color: #000;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 12px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.cta-button:hover {
+    background: #ffd700;
+}
+.appointmentHeading {
+    text-align: center;
+    font-size: 33px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: -10px;
+    margin-top:80px;
+    
+}
+.faq-section {
+            width: 90%;
+            max-width: 800px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .faq-heading {
+            font-size: 28px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+
+        .faq-container {
+            text-align: left;
+        }
+        
+
+        .faq-item {
+            background: #f9f9f9;
+            border-radius: 8px;
+            margin: 10px 0;
+            padding: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            transition: 0.3s;
+        }
+
+        .faq-item:hover {
+            background: #e8f4ff;
+        }
+
+        .faq-question {
+            background-color: transparent !important; /* Removes blue background */
+    outline: none; 
+            color:black;
+            width: 100%;
+            background: none;
+            border: none;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: left;
+            padding: 10px;
+            cursor: pointer;
+            outline: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            display: none;
+            padding: 10px;
+            font-size: 16px;
+            color: #555;
+        }
+
+        .arrow {
+            font-size: 20px;
+            color: #3498db;
+            transition: transform 0.3s;
+        }
+
+        /* Active state */
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-item.active .arrow {
+            transform: rotate(45deg);
+        }
+        .Faq {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin-top:140px;
+        }
+        .disease-facts-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 50px auto;
+            max-width: 1200px;
+        }
+        .disease-fact-box {
+            flex: 1;
+            background-color: #ffffff;
+            border: 2px solid #007BFF;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .disease-fact-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+        .disease-fact-box h2 {
+            font-size: 36px;
+            color: #007BFF;
+            margin-bottom: 10px;
+        }
+        .disease-fact-box p {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .know-why-link {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        .know-why-link:hover {
+            background-color: #0056b3;
+            color: #e9ecef;
+        }
          
     </style>
 </head>
@@ -552,46 +970,89 @@ footer {
         <p class="text2">Because Every Life Matters and Every Moment Counts.</p>
     </div>
 
-    <div class="subheading"><h1>Main Features Provided By Our Website</h1> <img class="blue" src="blue line.png"></div>
+    <div class="subheading"><h1>Explore Our Platform</h1> <img class="blue" src="blue line.png"></div>
     <div class="container">
         <div class="box"><h1>AI Detects Diseases</h1><img class="blues" src="blue line.png"><p class="para">AI-driven disease detection enables fast, accurate diagnoses by analyzing medical images, patient data, and genetics to identify diseases like cancer and diabetes early.</p></div>
         <div class="box"><h1>AI Health Guidance</h1><img class="blues" src="blue line.png"><p class="para">AI-powered health guidance provides personalized recommendations, symptom analysis, and wellness insights using machine learning and vast medical databases.</p></div>
         <div class="box"><h1>AI resource mapping</h1><img class="blues" src="blue line.png"><p class="para">AI resource mapping uses artificial intelligence to optimize resource allocation, improving efficiency and decision-making. It enhances sectors like energy, healthcare, and logistics.</p></div>
     </div>
-    <div class="containers">
-        <div class="boxs">
-            <h1 class="AI">AI-Powered Healthcare Analysis</h1>
-            <form id="healthForm">
-                <label for="imageInput">Upload Medical Image:</label>
-                <input type="file" id="imageInput" accept="image/*" required>
+    
+            
 
-                <label for="symptoms">Enter Symptoms:</label>
-                <textarea id="symptoms" rows="4" placeholder="E.g., Fever, cough, fatigue..." required></textarea>
-                <button type="button" id="analyzeButton" onclick="window.open('https://huggingface.co/spaces/misswd/qwertymodel', '_blank');">
-                    Analyze
-                  </button>
-                  
-                
-            </form>
-            <div id="results" class="results" style="display: none;">
-                <h3>Analysis Results:</h3>
-                <p id="resultText">Processing...</p>
+    <div class="disease-facts-container">
+        <div class="disease-fact-box">
+            <h2 id="fact1-title"></h2>
+            <p id="fact1-description"></p>
+            <a id="fact1-link" href="#" target="_blank" class="know-why-link">Know Why</a>
+        </div>
+        <div class="disease-fact-box">
+            <h2 id="fact2-title"></h2>
+            <p id="fact2-description"></p>
+            <a id="fact2-link" href="#" target="_blank" class="know-why-link">Know Why</a>
+        </div>
+    </div>
+    <script>
+        const diseaseFacts = [
+            { title: "27 Million", description: "People are affected by diabetes every year.", link: "knowwhy1.html" },
+            { title: "Heart Disease", description: "The leading cause of death globally.", link: "knowwhy2.html" },
+            { title: "1 in 8 Women", description: "Is diagnosed with breast cancer in her lifetime.", link: "knowwhy3.html" },
+            { title: "500,000 Deaths", description: "Occur annually from malaria worldwide.", link: "knowwhy4.html" },
+            { title: "10% Population", description: "Suffers from mental health disorders globally.", link: "knowwhy5.html" },
+            { title: "300 Million", description: "People are affected by chronic respiratory diseases.", link: "knowwhy6.html" },
+            { title: "820,000 Deaths", description: "Are caused by Hepatitis B annually.", link: "knowwhy7.html" },
+            { title: "Stroke", description: "Is the second leading cause of death and disability worldwide.", link: "knowwhy8.html" },
+            { title: "9 Million Cases", description: "Of tuberculosis are reported annually.", link: "knowwhy9.html" },
+            { title: "2.2 Billion", description: "People suffer from vision impairment globally.", link: "knowwhy10.html" },
+            { title: "1.8 Million Deaths", description: "Are caused by lung cancer every year.", link: "knowwhy11.html" },
+            { title: "Obesity Tripled", description: "Worldwide since 1975.", link: "knowwhy12.html" }
+        ];
+    
+        function getRandomFacts() {
+            const shuffled = diseaseFacts.sort(() => 0.5 - Math.random());
+            return shuffled.slice(0, 2);
+        }
+    
+        const [fact1, fact2] = getRandomFacts();
+    
+        document.getElementById("fact1-title").textContent = fact1.title;
+        document.getElementById("fact1-description").textContent = fact1.description;
+        document.getElementById("fact1-link").href = fact1.link;
+    
+        document.getElementById("fact2-title").textContent = fact2.title;
+        document.getElementById("fact2-description").textContent = fact2.description;
+        document.getElementById("fact2-link").href = fact2.link;
+    </script>
+    
+    <div class="wholeMatter">
+        <div class="contain">
+            <div class="image-contain">
+                <img src="Ai Healthcare.png" alt="Healthcare AI">
+                <a href="https://huggingface.co/spaces/beingVaishnavi/api" class="bt-fixed">AI Health Analysis 😷</a>
+                <p class="hide-text"></p>
             </div>
         </div>
-
-        <div class="boxss">
-            <h1 class="AIs">Food Nutrition Search</h1>
-            <input type="text" id="foodInput" placeholder="Enter food name...">
-            <button class="button2" id="nutritionButton">Get Nutrition</button>
-            <div id="output" class="results"></div>
+    </div>
+        
+        <h1 style="margin-top: 3rem;margin-bottom: 3rem;margin-left:32rem;font-size: 38px;">Hospitals & Underserved Areas</h1>
+        <div style="display: flex; gap: 15px; justify-content: center;">
+            <div style="width: 40%; background: white; padding: 15px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
+                <h3>🏥 Nearby Hospitals</h3>
+                <button id="button_1" onclick="findHospitals()" style="color: white; border: none; padding: 10px 15px; cursor: pointer; border-radius: 20px; font-size: 14px; transition: 0.3s; margin-bottom: 10px; background-color: #1DB954;">🚨 Find Nearby Hospitals</button>
+                <div id="map-hospitals" style="height: 350px; width: 100%; border-radius: 10px;"></div>
+                <div id="hospitalList" style="margin-top: 10px; padding: 8px; background: #f8f9fa; border-radius: 10px; text-align: left;"></div>
+            </div>
+            <div style=" margin-left:1.5rem;width: 40%; background: white; padding: 15px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);">
+                <h3>📍 Underserved Areas</h3>
+                <button id="button_2" onclick="getUserLocation()" style="color: white; border: none; padding: 10px 15px; cursor: pointer; border-radius: 20px; font-size: 14px; transition: 0.3s; margin-bottom: 10px; background-color: #1DB954;">🔍 Find Nearby Areas</button>
+                <div id="map-underserved" style="height: 350px; width: 100%; border-radius: 10px;"></div>
+                <div style="margin-top: 10px; padding: 8px; background: #f8f9fa; border-radius: 10px; text-align: left;">
+                    <h4>Selected Area Details</h4>
+                    <p><strong>Population:</strong> <span id="population">-</span></p>
+                    <p><strong>Major Problems:</strong> <span id="problems">-</span></p>
+                </div>
+            </div>
         </div>
     </div>
-    <div id="material1"> AI maps underserved areas and optimizes delivery routes for efficient resource distribution, enhancing access in sectors like healthcare and logistics.<div class="video-container" onclick="playVideo()">
-        <img src="video.png" alt="Video Thumbnail" id="thumbnail">
-        <iframe id="youtubeVideo" src="https://www.youtube.com/embed/YOUR_VIDEO_ID?autoplay=1" frameborder="0" allowfullscreen></iframe>
-    </div>
-    </div></div>
-    <div ><img class="map" src="hmap.png" ></div>
     <div class="telemedicine"><h1>Integrated Telemedicine</h1><p style = "margin-top:10px; width:1039px">Our telemedicine solution brings ease of access to employees who can receive consultations anytime, anywhere irrespective of their work location. It is a trusted and uninterrupted Clinical assistance, ideal for a diverse workforce and Hybrid Workplace scenarios.</p>
 
         <p style="margin-top: 10px;">We provide 24x7 Medical Helpline for:</p></div>
@@ -627,7 +1088,115 @@ footer {
                 </div>
             </div>
         </div>
+        <div class="meet">
+        <div class="containerd">
+            <!-- Left Section -->
+            <div class="left-section">
+                <h1>Video Consultations for everyone</h1>
+                <p>Connect, One on One Counselling, and Consult from doctor and from anywhere by this Platform</p>
+                <div class="buttons">
+                    <button  class="btns" id="newMeeting">
+                        <a  href="https://vedio-app-k92u.onrender.com" target="_blank">
+                        <img src="meeticons.png" alt="Meet Icon">
+                        New meeting
+                        </a>
+                    </button>
+                    <!--<div class="input-group">
+                        <input type="text" id="meetingCode" placeholder="Enter a code or link">
+                        <button id="joinBtn" disabled>Join</button>
+                    </div>-->
+                </div>
+            </div>
+    
+            <!-- Right Section -->
+            <div class="right-section">
+                <img src="meeting.png" alt="Google Meet Illustration">
+                <p>Click <strong>New meeting</strong> to join with the doctor for online consultations</p>
+            </div>
+        </div>
+    </div>
+
         <div ><h1 style = "margin-top:90px; margin-left:270px;">Collaboration and Partnerships:</h1><img class="ngo" src="https://i0.wp.com/yuva.info/wp-content/uploads/2024/05/collaboration-and-partnerships-ngos-collective-impact-in-india.jpg?w=1500&ssl=1"></div>
+        <h1 class="appointmentHeading">Easy & Convenient Appointment Scheduling</h1>
+        <div class="Thewhole">
+            
+            <div class="contains">
+                
+                <div class="image-section">
+                    
+                    <img src="Appointment.jpg" alt="Doctor at work">
+                </div>
+                <div class="text-section">
+                    <h4 class="a">Schedule Your Appointment Now!</h4>
+        <h2 class="b">Looking for a convenient way to book your appointments?</h2>
+       <ul class="appointmentul">
+            <li class="appointmentli">Find available slots that fit your schedule</li>
+            <li class="appointmentli">Book appointments quickly and hassle-free</li>
+            <li class="appointmentli">Get timely reminders and updates for your visits</li>
+        </ul>
+        
+                    </ul>
+                    <a href="https://jayawd456.github.io/Appointment-Scheduler/" class="cta-button">Book Your Appontment</a>
+                </div>
+            </div>
+        </div>
+        <!--FAQ-->
+        <div class="Faq">
+        <section class="faq-section">
+            <h2 class="faq-heading">Frequently Asked Questions</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button  class="faq-question">How can I access affordable healthcare services in underreserved areas? <span class="arrow">+</span></button>
+                    <div class="faq-answer">Many clinics offer low-cost or free services for underserved communities. You can check with local health centers, non-profits, or government programs for assistance.</div>
+                </div>
+    
+                <div class="faq-item">
+                    <button class="faq-question">Are there telehealth services available for remote areas? <span class="arrow">+</span></button>
+                    <div class="faq-answer">Yes, many healthcare providers offer telehealth consultations, allowing you to connect with doctors via video calls, even from remote locations.</div>
+                </div>
+    
+                <div class="faq-item">
+                    <button class="faq-question">What healthcare programs are available for uninsured individuals? <span class="arrow">+</span></button>
+                    <div class="faq-answer">There are various government-funded programs like Medicaid, free community health clinics, and sliding scale payment systems to help uninsured individuals receive care.</div>
+                </div>
+    
+                <div class="faq-item">
+                    <button class="faq-question">How can I get mental health support in an underserved area? <span class="arrow">+</span></button>
+                    <div class="faq-answer">Many community health centers and online platforms provide affordable or free mental health counseling, including crisis hotlines and support groups.</div>
+                </div>
+    
+                <div class="faq-item">
+                    <button class="faq-question">What are the common health challenges in underserved communities? <span class="arrow">+</span></button>
+                    <div class="faq-answer">Underserved communities often face challenges like lack of healthcare access, higher chronic disease rates, inadequate nutrition, and mental health disparities.</div>
+                </div>
+    
+                <div class="faq-item">
+                    <button class="faq-question">How do I find nearby low-cost healthcare clinics? <span class="arrow">+</span></button>
+                    <div class="faq-answer">You can visit websites like FreeClinics.com, use government resources, or contact local health departments for information on low-cost or free healthcare services in your area.</div>
+                </div>
+    
+                <div class="faq-item">
+                    <button class="faq-question">Can I receive vaccinations for free in my community? <span class="arrow">+</span></button>
+                    <div class="faq-answer">Yes, many community health centers, pharmacies, and public health initiatives provide free or low-cost vaccinations for children and adults.</div>
+                </div>
+    
+                <div class="faq-item">
+                    <button class="faq-question">Are there programs for elderly healthcare support? <span class="arrow">+</span></button>
+                    <div class="faq-answer">Yes, Medicare, senior wellness programs, and local non-profits offer various health services, including home care, prescription assistance, and wellness check-ups.</div>
+                </div>
+    
+                <div class="faq-item">
+                    <button class="faq-question">What should I do in case of a medical emergency with no insurance? <span class="arrow">+</span></button>
+                    <div class="faq-answer">In an emergency, go to the nearest hospital ER. Federal law requires hospitals to provide emergency treatment, regardless of insurance status. Additionally, charity care programs may help with bills.</div>
+                </div>
+    
+                <div class="faq-item">
+                    <button class="faq-question">How can I help improve healthcare in my community? <span class="arrow">+</span></button>
+                    <div class="faq-answer">You can volunteer at local clinics, spread awareness, advocate for healthcare policies, and support organizations that provide medical aid in underserved areas.</div>
+                </div>
+            </div>
+        </section>
+    </div>
     
         <div class="chatbot-icon">
             <a href="https://cdn.botpress.cloud/webchat/v2.2/shareable.html?configUrl=https://files.bpcontent.cloud/2025/02/07/17/20250207170105-G7KMCZR2.json" target="_blank" class="chatbot-icon">
@@ -693,93 +1262,165 @@ footer {
                 <p>&copy; 2025 abcd.com</p>
             </div>
         </footer>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-        <script>
-            document.getElementById("analyzeButton").addEventListener("click", async function() {
-                const imageInput = document.getElementById('imageInput');
-                const symptoms = document.getElementById('symptoms').value;
-                const resultsDiv = document.getElementById('results');
-                const resultText = document.getElementById('resultText');
-    
-                if (!imageInput.files[0] || !symptoms) {
-                    alert('Please upload an image and enter symptoms.');
-                    return;
-                }
-                resultsDiv.style.display = 'block';
-                resultText.textContent = 'Processing...';
-    
-                const formData = new FormData();
-                formData.append('image', imageInput.files[0]);
-                formData.append('symptoms', symptoms);
-    
-                try {
-                    const response = await fetch('https://huggingface.co/spaces/misswd/qwertymodel', {
-                        method: 'POST',
-                        body: formData
-                    });
-                    const data = await response.json();
-                    resultText.textContent = `Prediction: ${data.prediction}\nDetails: ${data.details}`;
-                } catch (error) {
-                    resultText.textContent = 'An error occurred: ' + error.message;
-                }
-            });
-    
-            document.getElementById("nutritionButton").addEventListener("click", async function() {
-                const food = document.getElementById("foodInput").value.trim();
-                if (!food) {
-                    alert("Please enter a food name!");
-                    return;
-                }
-                alert("Fetching data, please wait...");
-                const searchUrl = `https://world.openfoodfacts.org/cgi/search.pl?search_terms=${encodeURIComponent(food)}&search_simple=1&json=1`;
-                try {
-                    const response = await fetch(searchUrl);
-                    const data = await response.json();
-                    if (!data.products || data.products.length === 0) {
-                        document.getElementById("output").innerHTML = "<p>No data found. Try another food.</p>";
-                        return;
-                    }
-                    const product = data.products[0];
-                    if (!product || !product.nutriments) {
-                        document.getElementById("output").innerHTML = "<p>No nutrition data available.</p>";
-                        return;
-                    }
-                    document.getElementById("output").innerHTML = `
-                        <h3>Nutrition Facts for: ${product.product_name || "Unknown"}</h3>
-                        <p><strong>Calories:</strong> ${product.nutriments["energy-kcal_100g"] || 0} kcal</p>
-                        <p><strong>Protein:</strong> ${product.nutriments.proteins_100g || 0}g</p>
-                        <p><strong>Fat:</strong> ${product.nutriments.fat_100g || 0}g</p>
-                        <p><strong>Carbs:</strong> ${product.nutriments.carbohydrates_100g || 0}g</p>
-                    `;
-                } catch (error) {
-                    document.getElementById("output").innerHTML = "<p>Error fetching data. Try again.</p>";
-                }
-            });
-        function openChat() {
-    alert("Chatbot opened! You can integrate a chatbot here.");
-}
-function playVideo() {
-            document.getElementById("thumbnail").style.display = "none"; 
-            document.getElementById("youtubeVideo").style.display = "block"; 
+   <script>
+        let mapHospitals = L.map('map-hospitals').setView([20, 78], 5);
+        let mapUnderserved = L.map('map-underserved').setView([20, 78], 5);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(mapHospitals);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(mapUnderserved);
+
+        function findHospitals() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(position => {
+                    const lat = position.coords.latitude;
+                    const lng = position.coords.longitude;
+                    mapHospitals.setView([lat, lng], 14);
+                    fetchHospitals(lat, lng);
+                }, () => alert("Geolocation permission denied!"));
+            } else {
+                alert("Geolocation not supported.");
+            }
         }
 
-    </script>
+        function fetchHospitals(lat, lon) {
+            const query = `https://overpass-api.de/api/interpreter?data=[out:json];node(around:5000,${lat},${lon})[amenity=hospital];out;`;
+            fetch(query)
+                .then(response => response.json())
+                .then(data => {
+                    let hospitalList = document.getElementById("hospitalList");
+                    hospitalList.innerHTML = "<h4>Nearby Hospitals:</h4>";
+                    let listContent = "<ul>";
+                    data.elements.slice(0, 5).forEach(hospital => {
+                        if (hospital.tags.name) {
+                            listContent += `<li>${hospital.tags.name}</li>`;
+                            L.marker([hospital.lat, hospital.lon])
+                                .addTo(mapHospitals)
+                                .bindPopup(`<b>${hospital.tags.name}</b>`);
+                        }
+                    });
+                    listContent += "</ul>";
+                    hospitalList.innerHTML += listContent;
+                });
+        }
 
+        function getUserLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(position => {
+                    const userLat = position.coords.latitude;
+                    const userLng = position.coords.longitude;
+
+                    console.log("User Location:", userLat, userLng);
+
+                    mapUnderserved.setView([userLat, userLng], 14);
+
+                    L.marker([userLat, userLng]).addTo(mapUnderserved)
+                        .bindPopup("You are here").openPopup();
+
+                    setTimeout(() => { mapUnderserved.invalidateSize(); }, 500);
+
+                    fetchUnderservedAreas(userLat, userLng);
+                }, () => alert("Location access denied. Please allow location access."));
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+
+        function fetchUnderservedAreas(userLat, userLng) {
+            const query = `
+                [out:json];
+                (
+                     node["landuse"="residential"](around:5000, ${userLat}, ${userLng});
+                    way["landuse"="residential"](around:5000, ${userLat}, ${userLng});
+                    relation["landuse"="residential"](around:5000, ${userLat}, ${userLng});
+                );
+                out center;`;
+
+            const url = `https://overpass-api.de/api/interpreter?data=${encodeURIComponent(query)}`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    console.log("Fetched Data:", data);
+
+                    if (!data.elements || data.elements.length === 0) {
+                        alert("No underserved areas found nearby.");
+                        return;
+                    }
+
+                    data.elements.forEach(area => {
+                        if (area.lat && area.lon) {
+                            addDotMarker(area.lat, area.lon);
+                        } else if (area.center) {
+                            addDotMarker(area.center.lat, area.center.lon);
+                        }
+                    });
+                })
+                .catch(error => {
+                    console.error("Error fetching underserved areas:", error);
+                    alert("Error fetching data. Try again later.");
+                });
+        }
+
+        function addDotMarker(lat, lon) {
+            var population = getRandomPopulation();
+            var problems = getMajorProblems();
+
+            var circle = L.circleMarker([lat, lon], {
+                radius: 5, 
+                color: "red",
+                fillColor: "red",
+                fillOpacity: 0.8
+            }).addTo(mapUnderserved);
+
+            circle.bindPopup(`
+                <b>Population:</b> ${population}<br>
+                <b>Major Problems:</b> ${problems}
+            `).on('click', function () {
+                
+                document.getElementById('population').textContent = population;
+                document.getElementById('problems').textContent = problems;
+            });
+        }
+
+        function getRandomPopulation() {
+            return Math.floor(Math.random() * (10000 - 1000 + 1) + 1000);
+        }
+
+        function getMajorProblems() {
+            const problems = [
+                "Lack of clean water",
+                "Poor sanitation",
+                "Unemployment",
+                "High crime rate",
+                "Electricity shortages",
+                "Poor healthcare facilities"
+            ];
+            return problems[Math.floor(Math.random() * problems.length)];
+        }
+        document.querySelectorAll(".faq-question").forEach((item) => {
+            item.addEventListener("click", function () {
+                
+                let parent = this.parentNode;
+                parent.classList.toggle("active");
+            });
+        });
+        document.getElementById('newMeeting').addEventListener("click",()=>{
+            alert("Loading Please Wait")
+        });
+        document.getElementById('button_1').addEventListener("click",()=>{
+            alert("Loading Please Wait")
+        });
+        document.getElementById('button_2').addEventListener("click",()=>{
+            alert("Loading Please Wait")
+        });
+    </script>
+    
     
 
 </body>
 </html>
-
 
